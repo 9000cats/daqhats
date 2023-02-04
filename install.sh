@@ -23,13 +23,6 @@ make -C tools clean
 
 echo
 
-# Build examples
-echo "Building examples"
-echo
-make -C examples/c all
-
-echo
-
 # Read HAT EEPROMs to /etc/mcc/hats
 echo "Reading DAQ HAT EEPROMs"
 echo
@@ -44,30 +37,6 @@ if [ "$?" != "0" ]; then
 fi
 pip3 install . --upgrade
 
-echo
-
-# Install the Python package
-install_py2=0
-if [ $(which python | wc -l) -ne 0 ]; then
-   if [[ $1 == "-y" ]]; then
-      install_py2=1
-   else
-      echo -n "Do you want to install support for Python 2? [y/n] "
-      read input
-      if [ "$input" == "y" ]; then
-         install_py2=1
-      fi
-   fi
-fi
-
-if [ "$install_py2" == 1 ]; then
-   echo "Installing library for Python 2"
-   dpkg-query -l python-pip &> /dev/null
-   if [ "$?" != "0" ]; then
-      apt-get -qy install python-pip
-   fi
-   pip2 install . --upgrade
-fi
 
 echo
 
