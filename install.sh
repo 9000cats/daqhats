@@ -72,8 +72,8 @@ echo
 echo
 
 # Turn SPI on (needed for some MCC 118s that had incorrectly programmed EEPROMs)
-if [ $(raspi-config nonint get_spi) -eq 1 ]; then
-   raspi-config nonint do_spi 0
-fi
+# if [ $(raspi-config nonint get_spi) -eq 1 ]; then
+#    raspi-config nonint do_spi 0
+# fi
 
 echo "Install complete"
