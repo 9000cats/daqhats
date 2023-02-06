@@ -31,11 +31,11 @@ echo
 # echo
 
 # Read HAT EEPROMs to /etc/mcc/hats
-echo "Reading DAQ HAT EEPROMs"
-echo
-daqhats_read_eeproms
+# echo "Reading DAQ HAT EEPROMs"
+# echo
+# daqhats_read_eeproms
 
-echo
+# echo
 
 echo "Installing library for Python 3"
 # dpkg-query -l python3-pip &> /dev/null
