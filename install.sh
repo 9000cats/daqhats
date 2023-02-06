@@ -23,13 +23,6 @@ make -C tools clean
 
 echo
 
-# Build examples
-echo "Building examples"
-echo
-make -C examples/c all
-
-echo
-
 # Read HAT EEPROMs to /etc/mcc/hats
 echo "Reading DAQ HAT EEPROMs"
 echo
@@ -51,12 +44,6 @@ install_py2=0
 if [ $(which python | wc -l) -ne 0 ]; then
    if [[ $1 == "-y" ]]; then
       install_py2=1
-   else
-      echo -n "Do you want to install support for Python 2? [y/n] "
-      read input
-      if [ "$input" == "y" ]; then
-         install_py2=1
-      fi
    fi
 fi
 
